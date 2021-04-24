@@ -129,3 +129,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     'static',
 ]
+STATIC_ROOT = "/covidhelpers/static"
+# or, eg,
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
