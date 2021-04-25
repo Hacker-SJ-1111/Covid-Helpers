@@ -11,7 +11,7 @@ def home(request):
         allhelps = Helps.objects.all()
         helps = []
         for i in allhelps:
-            if i.city.lower() == city or i.state.lower() == city:
+            if i.city.lower() in city or i.state.lower() in city or city in i.city.lower() or city in i.state.lower():
                 if i.helps.lower() == Requirement:
                     helps.append(i)
         context = {"All":helps}
