@@ -58,6 +58,10 @@ $("#sendMessageButton").click(function(e) {
               },
               success: function(result) {
                   alert('Thank you for your help.');
+                  $('#name').val("");
+                  $('#city').val("");
+                  $('#state').val("");
+                  $('#phone').val("");
               },
               error: function(result) {
                   alert('error');
