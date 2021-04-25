@@ -22,7 +22,7 @@ from . import settings
 
 admin.site.site_header = "Covid Helpers Admin"
 admin.site.site_title = "Covid Helpers Admin Portal"
-admin.site.index_title = "Welcome to Covid Helpers Researcher Portal"
+admin.site.index_title = "Welcome to Covid Helpers Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
