@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from .models import Helps
+from django.conf import settings
+from django.core.files import File
 # Create your views here.
 def home(request):
     if request.method == "POST":
@@ -32,3 +34,12 @@ def newhelp(request):
     NewHelp = Helps(name=personname,helps=helpobj,city=city,state=state,contact=phone)
     NewHelp.save()
     return JsonResponse({})
+
+def downloaddb(request):    
+    db_path = settings.DATABASES['default']['NAME']
+    dbfile = File(open(db_path, "rb"))
+    response = HttpResponse(dbfile)
+    response['Content-Disposition'] = 'attachment; filename=%s' % db_path
+    response['Content-Length'] = dbfile.size
+
+    return response

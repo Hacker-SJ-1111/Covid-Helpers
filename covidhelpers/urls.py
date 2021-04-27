@@ -24,7 +24,7 @@ admin.site.site_title = "Covid Helpers Admin Portal"
 admin.site.index_title = "Welcome to Covid Helpers Portal"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('adminpanelurlistough/', admin.site.urls),
     path('',include('main.urls') ),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
