@@ -82,28 +82,28 @@ WSGI_APPLICATION = 'covidhelpers.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# DATABASES = {
+DATABASES = {
 
-#     'default': {
+    'default': {
 
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-#         'NAME': 'test',
+        'NAME': 'dbd3mkltfap5as',
 
-#         'USER': 'postgres',
+        'USER': 'jyeitmybihmaaz',
 
-#         'PASSWORD': 'sanatdanger',
+        'PASSWORD': '78f95d0fa9eb5afa080ed3dafcc36544ddd973fc24731c6718d175b4ad2e60b7',
 
-#         'HOST': 'localhost',
+        'HOST': 'ec2-34-225-167-77.compute-1.amazonaws.com',
 
-#         'PORT': '5432',
+        'PORT': '5432',
 
-#     }
+    }
 
-# }
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASEs['default'].update(db_from_env)
+}
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASEs['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
