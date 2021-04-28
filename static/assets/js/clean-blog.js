@@ -40,6 +40,7 @@
 
 })(jQuery); // End of use strict
 $("#sendMessageButton").click(function(e) {
+  $("#sendMessageButton").html('Please Wait..');
   if ($("#name").val() !== ""){
     if ($("#city").val() !== ""){
       if ($("#state").val() !== ""){
@@ -57,13 +58,15 @@ $("#sendMessageButton").click(function(e) {
                   csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val(),
               },
               success: function(result) {
-                  alert('Thank you for your help.');
+                $("#sendMessageButton").html('Add My Help');
+                  alert('Thank you! We have successfully added your help.');
                   $('#name').val("");
                   $('#city').val("");
                   $('#state').val("");
                   $('#phone').val("");
               },
               error: function(result) {
+                $("#sendMessageButton").html('Add My Help');
                   alert('error');
               }
           });
