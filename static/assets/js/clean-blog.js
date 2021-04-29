@@ -45,34 +45,37 @@ $("#sendMessageButton").click(function(e) {
     if ($("#city").val() !== ""){
       if ($("#state").val() !== ""){
         if ($("#phone").val() !== ""){
-          e.preventDefault();
-          $.ajax({
-              type: "POST",
-              url: "/newhelp",
-              data: { 
-                  name: $("#name").val(),
-                  help: $("#help option:selected").text(),
-                  city: $("#city").val(),
-                  state: $("#state").val(),
-                  phone: $("#phone").val(),
-                  csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val(),
-              },
-              success: function(result) {
-                $("#sendMessageButton").html('Add My Help');
-                  alert('Thank you! We have successfully added your help.');
-                  $('#name').val("");
-                  $('#city').val("");
-                  $('#state').val("");
-                  $('#phone').val("");
-              },
-              error: function(result) {
-                $("#sendMessageButton").html('Add My Help');
-                  alert('error');
-              }
-          });
+          if ($("#help").val() !== "Select"){
+          
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/newhelp",
+                data: { 
+                    name: $("#name").val(),
+                    help: $("#help option:selected").text(),
+                    city: $("#city").val(),
+                    state: $("#state").val(),
+                    phone: $("#phone").val(),
+                    csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function(result) {
+                  $("#sendMessageButton").html('Add My Help');
+                    alert('Thank you! We have successfully added your help.');
+                    $('#name').val("");
+                    $('#city').val("");
+                    $('#state').val("");
+                    $('#phone').val("");
+                },
+                error: function(result) {
+                  $("#sendMessageButton").html('Add My Help');
+                    alert('error');
+                }
+            });
+          
+          }else{alert('Please fill everything');}
         }else{alert('Please fill everything');}
       }else{alert('Please fill everything');}
     }else{alert('Please fill everything');}
   }else{alert('Please fill everything');}
   });
-
