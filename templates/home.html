@@ -24,26 +24,51 @@
       rel="stylesheet"
       href="{% static '/assets/fonts/font-awesome.min.css' %}"
     />
-    <link rel="icon" href="{% static '/assets/img/home-bg.jpg' %}" type="image/gif" sizes="16x16">
-    <meta property="og:title" content="Covid Helpers - Find medical helps from all India." />
-<meta property="og:description" content="Suffering with this bad covid time, lets learn to help." />
-<meta property="og:image" content="{% static '/assets/img/home-bg.jpg' %}" />
-<meta name="description" content="Suffering with this bad covid time, lets learn to help. Get all medical helps from whole India">
-<meta name="keywords" content="Covid Virus, Corona Virus,Oxygen and beds and ventilators, oxygen,plasma">
+    <link
+      rel="icon"
+      href="{% static '/assets/img/home-bg.jpg' %}"
+      type="image/gif"
+      sizes="16x16"
+    />
+    <meta
+      property="og:title"
+      content="Covid Helpers - Find medical helps from all India."
+    />
+    <meta
+      property="og:description"
+      content="Suffering with this bad covid time, lets learn to help."
+    />
+    <meta
+      property="og:image"
+      content="{% static '/assets/img/home-bg.jpg' %}"
+    />
+    <meta
+      name="description"
+      content="Suffering with this bad covid time, lets learn to help. Get all medical helps from whole India"
+    />
+    <meta
+      name="keywords"
+      content="Covid Virus, Corona Virus,Oxygen and beds and ventilators, oxygen,plasma"
+    />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CF3E4M7SSN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CF3E4M7SSN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-CF3E4M7SSN');
-</script>
-<style>
-  #cityinput::placeholder{
-    color:white;
-  }
-</style>
+      gtag("config", "G-CF3E4M7SSN");
+    </script>
+    <style>
+      #cityinput::placeholder {
+        color: white;
+      }
+    </style>
   </head>
 
   <body>
@@ -141,23 +166,29 @@
     </form>
     {% for help in All %}
     <div class="container">
-      <div class="row" style="margin: 26px; margin-top: 9px;width: 100%;">
+      <div class="row" style="margin: 26px; margin-top: 9px; width: 100%">
         <div class="col-md-15 col-lg-8">
           <div class="post-preview">
             <a href="#">
               <h2 class="post-title">
-                Get - {{help.helps}},<br> City - {{help.city}},<br> Provider - {{help.name}}
+                Get - {{help.helps}},<br />
+                City - {{help.city}},<br />
+                Provider - {{help.name}}
               </h2>
               <h3 class="post-subtitle">
-                <a style="color:blue;text-decoration: underline;" href="tel:+{{help.contact}}"
+                <a
+                  style="color: blue; text-decoration: underline"
+                  href="tel:+{{help.contact}}"
                   >{{help.contact}}</a
                 >
               </h3>
             </a>
           </div>
+          <hr />
         </div>
       </div>
     </div>
+
     {% endfor %}
     <footer>
       <div class="container">
