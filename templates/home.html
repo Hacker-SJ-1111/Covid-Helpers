@@ -164,28 +164,38 @@
         </button>
       </div>
     </form>
-    {% for help in All %}
+{% for help in All %}
     <div class="container">
-      <div class="row" style="margin: 26px; margin-top: 9px; width: 100%">
+      <div
+        class="row"
+        style="
+          margin: 26px;
+          margin-top: 9px;
+          width: 100%;
+          border: solid black 2px;
+          align-items: center;
+        "
+      >
         <div class="col-md-15 col-lg-8">
           <div class="post-preview">
             <a href="#">
               <h2 class="post-title">
                 Get - {{help.helps}},<br />
+                <hr style="height: 1px;background-color: grey;"/>
                 City - {{help.city}},<br />
+                <hr style="height: 1px;background-color: grey;"/>
                 Provider - {{help.name}}
               </h2>
-              <h3 class="post-subtitle">
-                <a
-                  style="color: blue; text-decoration: underline"
-                  href="tel:+{{help.contact}}"
-                  >{{help.contact}}</a
-                >
-              </h3>
             </a>
           </div>
-          <hr />
         </div>
+        
+          <a
+            style="display:block;margin:auto;color: rgb(255, 255, 255); text-decoration: none; background-color: blue; padding: 1.5%;"
+            href="tel:+{{help.contact}}"
+            >Call {{help.contact}}</a
+          >
+        
       </div>
     </div>
 
