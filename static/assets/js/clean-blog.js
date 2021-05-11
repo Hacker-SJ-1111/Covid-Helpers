@@ -59,9 +59,9 @@ $("#sendMessageButton").click(function(e) {
                     phone: $("#phone").val(),
                     csrfmiddlewaretoken: $('[name=csrfmiddlewaretoken]').val(),
                 },
-                success: function(result) {
+                success: function() {
                   $("#sendMessageButton").html('Add My Help');
-                    alert('Thank you! We have successfully added your help.');
+                    showThanks();
                     $('#name').val("");
                     $('#city').val("");
                     $('#state').val("");
@@ -79,3 +79,12 @@ $("#sendMessageButton").click(function(e) {
     }else{alert('Please fill everything');}
   }else{alert('Please fill everything');}
   });
+
+function showThanks(){
+  document.getElementById("thanksforhelp").style.display = "flex";
+  document.getElementById("mainNav").style.display = "none";
+}
+function hideThanks(){
+  document.getElementById("thanksforhelp").style.display = "none";
+  document.getElementById("mainNav").style.display = "block";
+}
