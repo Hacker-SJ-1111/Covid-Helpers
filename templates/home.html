@@ -61,6 +61,51 @@
         color: white;
         
       }
+      /* Dropdown Button */
+.dropbtn {
+  background-color: transparent;
+  color: black;
+  padding: 16px;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: -15%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
     </style>
   </head>
 
@@ -182,12 +227,20 @@
             </a>
           </div>
         </div>
-        
-          <a
+        <a
             style="display:block;margin:auto;color: rgb(255, 255, 255); text-decoration: none; background-color: blue; padding: 1.5%;"
             href="tel:+{{help.contact}}"
             >Call {{help.contact}}</a
           >
+        <div class="dropdown">
+          <button onclick="myFunction({{help.pk}})" class="dropbtn" id="dropbtn{{help.pk}}">⁝</button>
+          <div id="myDropdown" class="dropdown-content {{help.pk}}">
+            <a id = "report{{help.pk}}" onclick="report({{help.pk}})">Report</a>
+            <a onclick="#">Request deletion</a>
+            <a onclick="#">Save</a>
+          </div>
+        </div>
+          
         
       </div>
     </div>
@@ -204,6 +257,28 @@
     </footer>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% csrf_token %}
+    <script>
+      function report(pkCode){
+  $("#dropbtn"+pkCode).html('Reporting');
+            $.ajax({
+                type: "POST",
+                url: "/report",
+                data: { 
+                    pk: pkCode,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function() {
+                  $("#dropbtn"+pkCode).html('⁝');
+                  alert('Reported!');;
+                },
+                error: function(result) {
+                  $("#dropbtn"+pkCode).html('⁝');
+                    alert('error');
+                }
+            });
+          }
+    </script>
     <script src="{% static 'assets/js/clean-blog.js' %}"></script>
   </body>
 </html>

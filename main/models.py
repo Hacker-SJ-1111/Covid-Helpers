@@ -10,3 +10,8 @@ class Helps(models.Model):
     contact = models.CharField(max_length=1000,default="")
     def __str__(self):
         return f'{self.name} , {self.helps}'
+
+class reports(models.Model):
+    pkCode = models.IntegerField()
+    def __str__(self):
+        return self.pkCode

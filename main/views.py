@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse
-from .models import Helps
+from .models import Helps,reports
 from django.conf import settings
 import random
 from django.core.files import File
@@ -36,4 +36,10 @@ def newhelp(request):
     phone = request.POST.get('phone', None)
     NewHelp = Helps(name=personname,helps=helpobj,city=city,state=state,contact=phone)
     NewHelp.save()
+    return JsonResponse({})
+
+def report(request):
+    pkCode = request.POST.get('pk', None)
+    NewReport = reports(pkCode=pkCode)
+    NewReport.save()
     return JsonResponse({})
