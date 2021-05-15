@@ -14,4 +14,4 @@ class Helps(models.Model):
 class reports(models.Model):
     pkCode = models.IntegerField()
     def __str__(self):
-        return self.pkCode
+        return str(self.pkCode)
