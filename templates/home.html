@@ -80,7 +80,24 @@
 .dropdown {
   position: relative;
   display: inline-block;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .dropdown {
+  margin-top: 0%;
+}
+.dropdown-content {
+  margin-left: -300%;
+}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .dropdown {
   margin-top: -15%;
+}
+.dropdown-content {
+  margin-left: 0%;
+}
 }
 
 /* Dropdown Content (Hidden by Default) */
