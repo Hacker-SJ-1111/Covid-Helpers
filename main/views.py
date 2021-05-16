@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse
-from .models import Helps,reports
+from .models import Helps,reports,delete
 from django.conf import settings
 import random
 from django.core.files import File
@@ -42,4 +42,13 @@ def report(request):
     pkCode = request.POST.get('pk', None)
     NewReport = reports(pkCode=pkCode)
     NewReport.save()
+    return JsonResponse({})
+
+def delete(request):
+    print("we are here")
+    pkCode = request.POST.get('pk', None)
+    reason = request.POST.get('reason', None)
+    NewDelete = delete(pkCode=pkCode,reason=reason)
+    NewDelete.save()
+    print("we are now here")
     return JsonResponse({})

@@ -15,3 +15,9 @@ class reports(models.Model):
     pkCode = models.IntegerField()
     def __str__(self):
         return str(self.pkCode)
+
+class delete(models.Model):
+    pkCode = models.IntegerField()
+    reason = models.CharField(max_length=100000)
+    def __str__(self):
+        return str(self.pkCode)

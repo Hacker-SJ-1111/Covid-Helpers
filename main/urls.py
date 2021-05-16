@@ -6,4 +6,5 @@ urlpatterns = [
     path("addhelp",views.addhelp,name="Add Help"),
     path("newhelp",views.newhelp,name="New Help"),
     path("report",views.report,name="Report"),
+    path("delete",views.delete,name="Delete"),
 ]

@@ -253,7 +253,7 @@
           <button onclick="myFunction({{help.pk}})" class="dropbtn" id="dropbtn{{help.pk}}">⁝</button>
           <div id="myDropdown" class="dropdown-content {{help.pk}}">
             <a id = "report{{help.pk}}" onclick="report({{help.pk}})">Report</a>
-            <a onclick="#">Request deletion</a>
+            <a onclick="del({{help.pk}})">Request deletion</a>
             <a onclick="#">Save</a>
           </div>
         </div>
@@ -276,6 +276,26 @@
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
     {% csrf_token %}
     <script>
+      function del(pkCode){
+  $("#dropbtn"+pkCode).html('Sending Request');
+            $.ajax({
+                type: "POST",
+                url: "/delete",
+                data: { 
+                    pk: pkCode,
+                    reason: prompt("Please tell the reason."),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function() {
+                  $("#dropbtn"+pkCode).html('⁝');
+                  alert('Success!');;
+                },
+                error: function(result) {
+                  $("#dropbtn"+pkCode).html('⁝');
+                    alert('error');
+                }
+            });
+          }
       function report(pkCode){
   $("#dropbtn"+pkCode).html('Reporting');
             $.ajax({
