@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Helps,reports,delete
+from .models import Helps,reports,Ndelete
 admin.site.register(Helps)
 admin.site.register(reports)
-admin.site.register(delete)
+admin.site.register(Ndelete)

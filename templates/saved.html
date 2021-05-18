@@ -144,8 +144,8 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"></li>
             <li class="nav-item">
-              <a class="nav-link" href="/addhelp" style="background: var(--red)"
-                >Add Your Help</a
+              <a class="nav-link" href="/" style="background: var(--red)"
+                >Home</a
               >
             </li>
           </ul>
@@ -168,70 +168,8 @@
         </div>
       </div>
     </header>
-    <form
-      style="margin: auto; display: block; width: 50%"
-      method="POST"
-      action="/"
-    >
-      {% csrf_token %}
-      <div class="form-group">
-        <select
-          class="form-control"
-          style="
-            color: var(--light);
-            width: 231.4px;
-            display: inline;
-            background: blue;
-          "
-          name="Requirement"
-          value="Requirement"
-        >
-          <option value="Oxygen" selected>Oxygen</option>
-          <option value="Beds/ventilators">Beds/ventilators</option>
-          <option value="PPE kits">PPE kits</option></select
-        ><input
-          type="text"
-          class="form-control"
-          name="city"
-          placeholder="City"
-          id="cityinput"
-          style="
-            display: inline;
-            background: blue;
-            border-style: none;
-            border-bottom-style: none;
-            margin-left: 7px;
-            width: 203.8px;
-            color: var(--light);
-          "
-          required
-        /><button
-          class="btn btn-primary"
-          type="submit"
-          style="
-            background: var(--green);
-            width: 125.363px;
-            margin-left: 11px;
-            padding: 12px 25px;
-          "
-        >
-          Get help
-        </button>
-      </div>
-    </form>
-    <a href="/saved"
-          class="btn btn-primary"
-          style="
-            background: var(--green);
-            width: 125.363px;
-            margin-left: 11px;
-            padding: 12px 25px;
-            margin: auto;
-            display: block;
-          "
-        >
-          Saved
-        </a>
+    
+   
 {% for help in All %}
     <div class="container">
       <div
