@@ -171,7 +171,7 @@
     
    
 {% for help in All %}
-    <div class="container">
+    <div class="container" id="containerOf{{help.pk}}">
       <div
         class="row"
         style="
@@ -205,7 +205,7 @@
           <div id="myDropdown" class="dropdown-content {{help.pk}}">
             <a id = "report{{help.pk}}" onclick="report({{help.pk}})">Report</a>
             <a onclick="del({{help.pk}})">Request deletion</a>
-            <a onclick="#">Save</a>
+            <a onclick="remove({{help.pk}})">Remove</a>
           </div>
         </div>
           
@@ -223,6 +223,19 @@
         </div>
       </div>
     </footer>
+    <script>
+      function remove(pk){
+        pklist = JSON.parse(localStorage.getItem('savedHelpsList'));
+        const index = pklist.indexOf(pk);
+        pklist.splice(index,1)
+        localStorage.setItem('savedHelpsList',JSON.stringify(pklist));
+        {% for help in All %}
+      if (!pklist.includes({{help.pk}})){
+        document.getElementById("containerOf"+{{help.pk}}).style.display = "none";
+      }
+      {% endfor %}
+      }
+    </script>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
     {% csrf_token %}
@@ -266,6 +279,14 @@
                 }
             });
           }
+    </script>
+    <script>
+      pklist = JSON.parse(localStorage.getItem('savedHelpsList'));
+      {% for help in All %}
+      if (!pklist.includes({{help.pk}})){
+        document.getElementById("containerOf"+{{help.pk}}).style.display = "none";
+      }
+      {% endfor %}
     </script>
     <script src="{% static 'assets/js/clean-blog.js' %}"></script>
   </body>

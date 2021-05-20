@@ -267,7 +267,7 @@
           <div id="myDropdown" class="dropdown-content {{help.pk}}">
             <a id = "report{{help.pk}}" onclick="report({{help.pk}})">Report</a>
             <a onclick="del({{help.pk}})">Request deletion</a>
-            <a onclick="#">Save</a>
+            <a onclick="Save({{help.pk}})">Save</a>
           </div>
         </div>
           
@@ -285,6 +285,16 @@
         </div>
       </div>
     </footer>
+    <script>
+      function Save(pk){
+        pklist = JSON.parse(localStorage.getItem('savedHelpsList'));
+        pklist.push(pk)
+        localStorage.setItem('savedHelpsList',JSON.stringify(pklist));
+      }
+      if(localStorage.getItem('savedHelpsList') == null){
+        localStorage.setItem('savedHelpsList',JSON.stringify([]));
+      }
+    </script>
     <script src="{% static 'assets/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
     {% csrf_token %}

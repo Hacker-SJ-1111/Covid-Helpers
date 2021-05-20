@@ -28,6 +28,11 @@ def home(request):
 def addhelp(request):
     return render(request,"add help.html")
 
+def saved(request):
+    allHelps = Helps.objects.all()
+    context = {"All":allHelps}
+    return render(request,"saved.html",context)
+
 def newhelp(request):
     personname = request.POST.get('name', None)
     helpobj = request.POST.get('help', None)
