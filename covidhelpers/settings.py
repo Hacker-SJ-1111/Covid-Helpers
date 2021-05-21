@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '1abrfp@rui65mx@n29wg-7ftm$33cn1e&z-t4)mnxenl6gbfl@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','corona-helpers.herokuapp.com']
 
@@ -84,30 +83,45 @@ WSGI_APPLICATION = 'covidhelpers.wsgi.application'
 #     }
 # }
 
+
+
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+#         'NAME': 'devpoa4n430kq1',
+
+#         'USER': 'ermblwnyqqjbqb',
+
+#         'PASSWORD': '19e126b2078ca74322dddf669513b7a746937e2e8323b148445a5b9233137cd4',
+
+#         'HOST': 'ec2-54-163-97-228.compute-1.amazonaws.com',
+
+#         'PORT': '5432',
+
+#     }
+# }
+# import django.db.backends.sqlite3
 DATABASES = {
 
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'devpoa4n430kq1',
+        'NAME': 'djcnrhjm',
 
-        'USER': 'ermblwnyqqjbqb',
+        'USER': 'djcnrhjm',
 
-        'PASSWORD': '19e126b2078ca74322dddf669513b7a746937e2e8323b148445a5b9233137cd4',
+        'PASSWORD': 'v2Fz7yvQtmH4KEuRJosDW1ytwzKKQfh4',
 
-        'HOST': 'ec2-54-163-97-228.compute-1.amazonaws.com',
+        'HOST': 'satao.db.elephantsql.com',
 
         'PORT': '5432',
 
     }
 }
-
-# import dj_database_url
-# db_from_env = dj_database_url.config(conn_max_age=600)
-# DATABASEs['default'].update(db_from_env)
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {

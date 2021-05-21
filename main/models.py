@@ -7,7 +7,7 @@ class Helps(models.Model):
     helps = models.CharField(max_length=1000,default="")
     city = models.CharField(max_length=1000,default="")
     state = models.CharField(max_length=1000,default="")
-    contact = models.CharField(max_length=1000,default="")
+    contact = models.CharField(max_length=1000,default=" ")
     def __str__(self):
         return f'{self.name} , {self.helps}'
 
