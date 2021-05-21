@@ -2,205 +2,161 @@
 {% load compress %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>Covid Helpers</title>
-    {% compress css %}
-    <link
-      rel="stylesheet"
-      href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}"
-    />
-    <link
-      rel="stylesheet"
-      href="{% static '/assets/fonts/font-awesome.min.css' %}"
-    />
-    {% endcompress %}
-    <link
-      rel="icon"
-      href="{% static '/assets/img/home-bg.jpg' %}"
-      type="image/gif"
-      sizes="16x16"
-    />
-    <meta
-      property="og:title"
-      content="Covid Helpers - Find medical helps from all India."
-    />
-    <meta
-      property="og:description"
-      content="Suffering with this bad covid time, lets learn to help."
-    />
-    <meta
-      property="og:image"
-      content="{% static '/assets/img/home-bg.jpg' %}"
-    />
-    <meta
-      name="description"
-      content="Suffering with this bad covid time, lets learn to help. Get all medical helps from whole India"
-    />
-    <meta
-      name="keywords"
-      content="Covid Virus, Corona Virus,Oxygen and beds and ventilators, oxygen,plasma"
-    />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CF3E4M7SSN"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>Covid Helpers</title>
+  {% compress css %}
+  <link rel="stylesheet" href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/assets/fonts/font-awesome.min.css' %}" />
+  {% endcompress %}
+  <link rel="icon" href="{% static '/assets/img/home-bg.jpg' %}" type="image/gif" sizes="16x16" />
+  <meta property="og:title" content="Covid Helpers - Find medical helps from all India." />
+  <meta property="og:description" content="Suffering with this bad covid time, lets learn to help." />
+  <meta property="og:image" content="{% static '/assets/img/home-bg.jpg' %}" />
+  <meta name="description"
+    content="Suffering with this bad covid time, lets learn to help. Get all medical helps from whole India" />
+  <meta name="keywords" content="Covid Virus, Corona Virus,Oxygen and beds and ventilators, oxygen,plasma" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF3E4M7SSN"></script>{% compress js %}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-CF3E4M7SSN");
+  </script>
+  {% endcompress %}
+  {% compress css %}
+  <style>
+    #cityinput::placeholder {
+      color: white;
+
+    }
+
+    /* Dropdown Button */
+    .dropbtn {
+      background-color: transparent;
+      color: black;
+      padding: 16px;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Dropdown button on hover & focus */
+    .dropbtn:hover {
+      background-color: #2980B9;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+      /* For mobile phones: */
+      .dropdown {
+        margin-top: 0%;
       }
-      gtag("js", new Date());
 
-      gtag("config", "G-CF3E4M7SSN");
-    </script>
-    {% compress css %}
-    <style>
-      #cityinput::placeholder {
-        color: white;
-        
+      .dropdown-content {
+        margin-left: -300%;
       }
-      /* Dropdown Button */
-.dropbtn {
-  background-color: transparent;
-  color: black;
-  padding: 16px;
-  font-size: 30px;
-  border: none;
-  cursor: pointer;
-}
+    }
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover {
-  background-color: #2980B9;
-}
+    @media only screen and (min-width: 768px) {
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  .dropdown {
-  margin-top: 0%;
-}
-.dropdown-content {
-  margin-left: -300%;
-}
-}
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .dropdown {
-  margin-top: -15%;
-}
-.dropdown-content {
-  margin-left: 0%;
-}
-}
+      /* For desktop: */
+      .dropdown {
+        margin-top: -15%;
+      }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+      .dropdown-content {
+        margin-left: 0%;
+      }
+    }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
-    </style>
-    {% endcompress %}
-  </head>
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd
+    }
 
-  <body>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="/">Covid Helpers</a
-        ><button
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          class="navbar-toggler"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"></li>
-            <li class="nav-item">
-              <a class="nav-link" href="/addhelp" style="background: var(--red)"
-                >Add Your Help</a
-              >
-            </li>
-          </ul>
-        </div>
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {
+      display: block;
+    }
+  </style>
+  {% endcompress %}
+</head>
+
+<body>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/">Covid Helpers</a><button data-toggle="collapse" data-target="#navbarResponsive"
+        class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"></li>
+          <li class="nav-item">
+            <a class="nav-link" href="/addhelp" style="background: var(--red)">Add Your Help</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <header
-      class="masthead"
-      style="background-image: url('{% static '/assets/img/home-bg.jpg' %}')"
-    >
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-8 mx-auto">
-            <div class="site-heading">
-              <h1>Covid Helpers</h1>
-              <span class="subheading">Get help in all India</span>
-            </div>
+    </div>
+  </nav>
+  <header class="masthead" style="background-image: url('{% static '/assets/img/home-bg.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+          <div class="site-heading">
+            <h1>Covid Helpers</h1>
+            <span class="subheading">Get help in all India</span>
           </div>
         </div>
       </div>
-    </header>
-    <form
-      style="margin: auto; display: block; width: 50%"
-      method="POST"
-      action="/"
-    >
-      {% csrf_token %}
-      <div class="form-group">
-        <select
-          class="form-control"
-          style="
+    </div>
+  </header>
+  <form style="margin: auto; display: block; width: 50%" method="POST" action="/">
+    {% csrf_token %}
+    <div class="form-group">
+      <select class="form-control" style="
             color: var(--light);
             width: 231.4px;
             display: inline;
             background: blue;
-          "
-          name="Requirement"
-          value="Requirement"
-        >
-          <option value="Oxygen" selected>Oxygen</option>
-          <option value="Beds/ventilators">Beds/ventilators</option>
-          <option value="PPE kits">PPE kits</option></select
-        ><input
-          type="text"
-          class="form-control"
-          name="city"
-          placeholder="City"
-          id="cityinput"
-          style="
+          " name="Requirement" value="Requirement">
+        <option value="Oxygen" selected>Oxygen</option>
+        <option value="Beds/ventilators">Beds/ventilators</option>
+        <option value="PPE kits">PPE kits</option>
+      </select><input type="text" class="form-control" name="city" placeholder="City" id="cityinput" style="
             display: inline;
             background: blue;
             border-style: none;
@@ -208,142 +164,131 @@
             margin-left: 7px;
             width: 203.8px;
             color: var(--light);
-          "
-          required
-        /><button
-          class="btn btn-primary"
-          type="submit"
-          style="
+          " required /><button class="btn btn-primary" type="submit" style="
             background: var(--green);
             width: 125.363px;
             margin-left: 11px;
             padding: 12px 25px;
-          "
-        >
-          Get help
-        </button>
-      </div>
-    </form>
-    <a href="/saved"
-          class="btn btn-primary"
-          style="
+          ">
+        Get help
+      </button>
+    </div>
+  </form>
+  <a href="/saved" class="btn btn-primary" style="
             background: var(--green);
             width: 125.363px;
             margin-left: 11px;
             padding: 12px 25px;
             margin: auto;
             display: block;
-          "
-        >
-          Saved
-        </a>
-{% for help in All %}
-    <div class="container">
-      <div
-        class="row"
-        style="
+          ">
+    Saved
+  </a>
+  {% for help in All %}
+  <div class="container">
+    <div class="row" style="
           margin: auto;
           margin-top: 15px;
           width: 100%;
           border: solid black 2px;
           align-items: center;
-        "
-      >
-        <div class="col-md-15 col-lg-8">
-          <div class="post-preview">
-            <a href="#">
-              <h2 class="post-title">
-                Get - {{help.helps}},<br />
-                <hr style="height: 1px;background-color: grey;"/>
-                City - {{help.city}},<br />
-                <hr style="height: 1px;background-color: grey;"/>
-                Provider - {{help.name}}
-              </h2>
-            </a>
-          </div>
+        ">
+      <div class="col-md-15 col-lg-8">
+        <div class="post-preview">
+          <a href="#">
+            <h2 class="post-title">
+              Get - {{help.helps}},<br />
+              <hr style="height: 1px;background-color: grey;" />
+              City - {{help.city}},<br />
+              <hr style="height: 1px;background-color: grey;" />
+              Provider - {{help.name}}
+            </h2>
+          </a>
         </div>
-        <a
-            style="display:block;margin:auto;color: rgb(255, 255, 255); text-decoration: none; background-color: blue; padding: 1.5%;"
-            href="tel:+{{help.contact}}"
-            >Call {{help.contact}}</a
-          >
-        <div class="dropdown">
-          <button onclick="myFunction({{help.pk}})" class="dropbtn" id="dropbtn{{help.pk}}">⁝</button>
-          <div id="myDropdown" class="dropdown-content {{help.pk}}">
-            <a id = "report{{help.pk}}" onclick="report({{help.pk}})">Report</a>
-            <a onclick="del({{help.pk}})">Request deletion</a>
-            <a onclick="Save({{help.pk}})">Save</a>
-          </div>
+      </div>
+      <a style="display:block;margin:auto;color: rgb(255, 255, 255); text-decoration: none; background-color: blue; padding: 1.5%;"
+        href="tel:+{{help.contact}}">Call {{help.contact}}</a>
+      <div class="dropdown">
+        <button onclick="myFunction({{help.pk}})" class="dropbtn" id="dropbtn{{help.pk}}">⁝</button>
+        <div id="myDropdown" class="dropdown-content {{help.pk}}">
+          <a id="report{{help.pk}}" onclick="report({{help.pk}})">Report</a>
+          <a onclick="del({{help.pk}})">Request deletion</a>
+          <a onclick="Save({{help.pk}})">Save</a>
         </div>
-          
-        
+      </div>
+
+
+    </div>
+  </div>
+
+  {% endfor %}
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto">
+          <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Brand 2021</p>
+        </div>
       </div>
     </div>
+  </footer>
+  {% compress js %}
+  <script>
+    function Save(pk) {
+      pklist = JSON.parse(localStorage.getItem('savedHelpsList'));
+      pklist.push(pk)
+      localStorage.setItem('savedHelpsList', JSON.stringify(pklist));
+      alert("Successfully Saved!")
+    }
+    if (localStorage.getItem('savedHelpsList') == null) {
+      localStorage.setItem('savedHelpsList', JSON.stringify([]));
+    }
+  </script>
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  {% csrf_token %}
+  <script>
+    function del(pkCode) {
+      $("#dropbtn" + pkCode).html('Requesting');
+      $.ajax({
+        type: "POST",
+        url: "/delete",
+        data: {
+          pk: pkCode,
+          reason: prompt("Please tell the reason."),
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function () {
+          $("#dropbtn" + pkCode).html('⁝');
+          alert('Success!');;
+        },
+        error: function (result) {
+          $("#dropbtn" + pkCode).html('⁝');
+          alert('error');
+        }
+      });
+    }
+    function report(pkCode) {
+      $("#dropbtn" + pkCode).html('Reporting');
+      $.ajax({
+        type: "POST",
+        url: "/report",
+        data: {
+          pk: pkCode,
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+        },
+        success: function () {
+          $("#dropbtn" + pkCode).html('⁝');
+          alert('Reported!');;
+        },
+        error: function (result) {
+          $("#dropbtn" + pkCode).html('⁝');
+          alert('error');
+        }
+      });
+    }
+  </script>
+  <script src="{% static 'assets/js/clean-blog.js' %}"></script>
+  {% endcompress %}
+</body>
 
-    {% endfor %}
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-lg-8 mx-auto">
-            <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Brand 2021</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script>
-      function Save(pk){
-        pklist = JSON.parse(localStorage.getItem('savedHelpsList'));
-        pklist.push(pk)
-        localStorage.setItem('savedHelpsList',JSON.stringify(pklist));
-      }
-      if(localStorage.getItem('savedHelpsList') == null){
-        localStorage.setItem('savedHelpsList',JSON.stringify([]));
-      }
-    </script>
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-    {% csrf_token %}
-    <script>
-      function del(pkCode){
-  $("#dropbtn"+pkCode).html('Requesting');
-            $.ajax({
-                type: "POST",
-                url: "/delete",
-                data: { 
-                    pk: pkCode,
-                    reason: prompt("Please tell the reason."),
-                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-                },
-                success: function() {
-                  $("#dropbtn"+pkCode).html('⁝');
-                  alert('Success!');;
-                },
-                error: function(result) {
-                  $("#dropbtn"+pkCode).html('⁝');
-                    alert('error');
-                }
-            });
-          }
-      function report(pkCode){
-  $("#dropbtn"+pkCode).html('Reporting');
-            $.ajax({
-                type: "POST",
-                url: "/report",
-                data: { 
-                    pk: pkCode,
-                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
-                },
-                success: function() {
-                  $("#dropbtn"+pkCode).html('⁝');
-                  alert('Reported!');;
-                },
-                error: function(result) {
-                  $("#dropbtn"+pkCode).html('⁝');
-                    alert('error');
-                }
-            });
-          }
-    </script>
-    <script src="{% static 'assets/js/clean-blog.js' %}"></script>
-  </body>
 </html>

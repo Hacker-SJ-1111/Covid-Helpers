@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,6 +9,7 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
     <title>Become a helper</title>
+    {% compress css %}
     <link
       rel="stylesheet"
       href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}"
@@ -16,17 +18,19 @@
       rel="stylesheet"
       href="{% static '/assets/fonts/font-awesome.min.css' %}"
     />
+    {% endcompress %}
     <link rel="icon" href="{% static '/assets/img/home-bg.jpg' %}" type="image/gif" sizes="16x16">
     <meta property="og:title" content="Covid Helpers - Find medical helps from all India." />
 <meta property="og:description" content="Suffering with this bad covid time, lets learn to help." />
 <meta property="og:image" content="{% static '/assets/img/home-bg.jpg' %}" />
 <meta name="description" content="Suffering with this bad covid time, lets learn to help. Get all medical helps from whole India">
 <meta name="keywords" content="Covid Virus, Corona Virus,Oxygen and beds and ventilators, oxygen,plasma">
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script
 async
 src="https://www.googletagmanager.com/gtag/js?id=G-CF3E4M7SSN"
-></script>
+></script>{% compress js %}
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag() {
@@ -36,6 +40,8 @@ gtag("js", new Date());
 
 gtag("config", "G-CF3E4M7SSN");
 </script>
+{% endcompress %}
+{% compress css %}
 <style>
   #thanksforhelp{
     background-color: black;
@@ -48,6 +54,7 @@ gtag("config", "G-CF3E4M7SSN");
     justify-content: center;
   }
 </style>
+{% endcompress %}
   </head>
 
   <body>
@@ -180,9 +187,11 @@ gtag("config", "G-CF3E4M7SSN");
         </div>
       </div>
     </footer>
+    {% compress js %}
     <script src="{% static '/assets/js/jquery.min.js' %}"></script>
     <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
     {% csrf_token %}
     <script src="{% static '/assets/js/clean-blog.js' %}"></script>
+    {% endcompress %}
   </body>
 </html>

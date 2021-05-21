@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +9,7 @@
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
     <title>Covid Helpers</title>
+    {% compress css %}
     <link
       rel="stylesheet"
       href="{% static '/assets/bootstrap/css/bootstrap.min.css' %}"
@@ -16,6 +18,7 @@
       rel="stylesheet"
       href="{% static '/assets/fonts/font-awesome.min.css' %}"
     />
+    {% endcompress %}
     <link
       rel="icon"
       href="{% static '/assets/img/home-bg.jpg' %}"
@@ -42,11 +45,12 @@
       name="keywords"
       content="Covid Virus, Corona Virus,Oxygen and beds and ventilators, oxygen,plasma"
     />
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-CF3E4M7SSN"
-    ></script>
+    ></script>{% compress js %}
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -56,6 +60,8 @@
 
       gtag("config", "G-CF3E4M7SSN");
     </script>
+    {% endcompress %}
+    {% compress css %}
     <style>
       #cityinput::placeholder {
         color: white;
@@ -124,6 +130,7 @@
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
     </style>
+    {% endcompress %}
   </head>
 
   <body>
@@ -223,6 +230,7 @@
         </div>
       </div>
     </footer>
+    {% compress js %}
     <script>
       function remove(pk){
         pklist = JSON.parse(localStorage.getItem('savedHelpsList'));
@@ -289,5 +297,6 @@
       {% endfor %}
     </script>
     <script src="{% static 'assets/js/clean-blog.js' %}"></script>
+    {% endcompress %}
   </body>
 </html>
