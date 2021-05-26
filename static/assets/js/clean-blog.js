@@ -74,7 +74,7 @@ $("#sendMessageButton").click(function(e) {
                 }
             });
           
-          }else{alert('Please fill everything');}
+          }else{alert('Please fill everything');} 
         }else{alert('Please fill everything');}
       }else{alert('Please fill everything');}
     }else{alert('Please fill everything');}

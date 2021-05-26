@@ -186,8 +186,9 @@ gtag("config", "G-CF3E4M7SSN");
     {% compress js %}
     <script src="{% static '/assets/js/jquery.min.js' %}"></script>
     <script src="{% static '/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% endcompress %}
     {% csrf_token %}
     <script src="{% static '/assets/js/clean-blog.js' %}"></script>
-    {% endcompress %}
+    
   </body>
 </html>
